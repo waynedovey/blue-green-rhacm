@@ -8,10 +8,10 @@ metadata:
 spec:
   clusterIP: 
   ports:
-    - name: 5555-tcp
+    - name: 8080-tcp
       port: 56565
       protocol: TCP
-      targetPort: 5555
+      targetPort: 8080
   selector:
     deploymentconfig: microsvcruntime
   sessionAffinity: None

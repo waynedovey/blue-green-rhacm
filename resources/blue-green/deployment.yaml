@@ -32,7 +32,7 @@ spec:
         imagePullPolicy: Always
         name: blue-green
         ports:
-        - containerPort: 5555
+        - containerPort: 8080
           protocol: TCP
         resources: {}
         terminationMessagePath: /dev/termination-log

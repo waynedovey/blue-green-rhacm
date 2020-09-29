@@ -10,10 +10,10 @@ metadata:
   name: blue-green
 spec:
   ports:
-  - name: 5555-tcp
-    port: 5555
+  - name: 8080-tcp
+    port: 8080
     protocol: TCP
-    targetPort: 5555
+    targetPort: 8080
   selector:
     app: blue-green
     deploymentconfig: blue-green

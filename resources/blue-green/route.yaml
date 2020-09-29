@@ -12,7 +12,7 @@ metadata:
 spec:
   host: blue-green.trafficmanager.net  
   port:
-    targetPort: 5555-tcp
+    targetPort: 8080-tcp
   to:
     kind: Service
     name: blue-green

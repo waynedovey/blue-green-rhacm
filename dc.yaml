@@ -43,7 +43,7 @@ spec:
           imagePullPolicy: Always
           name: microsvcruntime
           ports:
-            - containerPort: 5555
+            - containerPort: 8080
               protocol: TCP
           resources: 
             limits:

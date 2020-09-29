@@ -6,7 +6,7 @@ metadata:
 spec:
   host: microsvcruntime.usvmapimgmt02.eur.ad.sag
   port:
-    targetPort: 5555-tcp
+    targetPort: 8080-tcp
   to:
     kind: Service
     name: microsvcruntimesrv
