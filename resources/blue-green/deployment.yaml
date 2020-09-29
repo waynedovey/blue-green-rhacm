@@ -28,7 +28,7 @@ spec:
         deploymentconfig: blue-green
     spec:
       containers:
-      - image: quay.io/wdovey/softwareag:latest
+      - image: openshift/deployment-example:v1
         imagePullPolicy: Always
         name: blue-green
         ports:

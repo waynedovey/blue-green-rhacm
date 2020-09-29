@@ -15,7 +15,7 @@ metadata:
     app: blue-green
 spec:
   type: GitHub
-  pathname: https://github.com/waynedovey/blue-green-microservicesruntime-openshift-samples.git
+  pathname: https://github.com/waynedovey/blue-green-rhacm.git
 ---
 apiVersion: apps.open-cluster-management.io/v1
 kind: PlacementRule
