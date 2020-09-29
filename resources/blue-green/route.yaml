@@ -1,0 +1,24 @@
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  annotations:
+    openshift.io/host.generated: "true"
+    argocd.argoproj.io/sync-wave: "1"
+  creationTimestamp: null
+  labels:
+    app: blue-green
+    app.kubernetes.io/instance: blue-green    
+  name: blue-green
+spec:
+  host: blue-green.trafficmanager.net  
+  port:
+    targetPort: 5555-tcp
+  to:
+    kind: Service
+    name: blue-green
+    weight: 100
+status:
+  ingress:
+    - conditions:
+        - status: 'True'
+          type: Admitted
