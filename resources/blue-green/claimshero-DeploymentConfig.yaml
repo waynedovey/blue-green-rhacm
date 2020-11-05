@@ -159,7 +159,7 @@ metadata:
   name: claimshero
   namespace: test-app
 spec:
-  replicas: 2
+  replicas: 1
   revisionHistoryLimit: 10
   selector:
     app: claimshero
