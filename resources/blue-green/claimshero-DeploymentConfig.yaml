@@ -1,0 +1,233 @@
+apiVersion: apps.openshift.io/v1
+kind: DeploymentConfig
+metadata:
+  annotations:
+    openshift.io/generated-by: RedHat
+  generation: 5
+  labels:
+    app: claimshero
+    app.kubernetes.io/component: claimshero
+    app.kubernetes.io/instance: claimshero
+    app.kubernetes.io/part-of: claimshero-app
+    app.openshift.io/runtime-namespace: test-app
+  managedFields:
+  - apiVersion: apps.openshift.io/v1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:metadata:
+        f:annotations:
+          .: {}
+          f:openshift.io/generated-by: {}
+        f:labels:
+          .: {}
+          f:app: {}
+          f:app.kubernetes.io/component: {}
+          f:app.kubernetes.io/instance: {}
+          f:app.kubernetes.io/part-of: {}
+          f:app.openshift.io/runtime-namespace: {}
+      f:spec:
+        f:replicas: {}
+        f:selector:
+          .: {}
+          f:app: {}
+          f:deploymentconfig: {}
+        f:strategy:
+          f:activeDeadlineSeconds: {}
+          f:rollingParams:
+            .: {}
+            f:intervalSeconds: {}
+            f:maxSurge: {}
+            f:maxUnavailable: {}
+            f:timeoutSeconds: {}
+            f:updatePeriodSeconds: {}
+          f:type: {}
+        f:template:
+          .: {}
+          f:metadata:
+            .: {}
+            f:annotations:
+              .: {}
+              f:openshift.io/generated-by: {}
+            f:creationTimestamp: {}
+            f:labels:
+              .: {}
+              f:app: {}
+              f:deploymentconfig: {}
+          f:spec:
+            .: {}
+            f:containers:
+              .: {}
+              k:{"name":"claimshero"}:
+                .: {}
+                f:env:
+                  .: {}
+                  k:{"name":"ALLOWED_ORIGIN"}:
+                    .: {}
+                    f:name: {}
+                    f:value: {}
+                  k:{"name":"APP_PORT"}:
+                    .: {}
+                    f:name: {}
+                    f:value: {}
+                  k:{"name":"DB_HOST"}:
+                    .: {}
+                    f:name: {}
+                    f:value: {}
+                  k:{"name":"DB_NAME"}:
+                    .: {}
+                    f:name: {}
+                    f:value: {}
+                  k:{"name":"DB_PASSWORD"}:
+                    .: {}
+                    f:name: {}
+                    f:value: {}
+                  k:{"name":"DB_PORT"}:
+                    .: {}
+                    f:name: {}
+                    f:value: {}
+                  k:{"name":"DB_TABLE_OWNER"}:
+                    .: {}
+                    f:name: {}
+                    f:value: {}
+                  k:{"name":"DB_TABLE_OWNER_PASSWORD"}:
+                    .: {}
+                    f:name: {}
+                    f:value: {}
+                  k:{"name":"DB_USER"}:
+                    .: {}
+                    f:name: {}
+                    f:value: {}
+                f:imagePullPolicy: {}
+                f:name: {}
+                f:ports:
+                  .: {}
+                  k:{"containerPort":3000,"protocol":"TCP"}:
+                    .: {}
+                    f:containerPort: {}
+                    f:protocol: {}
+                f:resources: {}
+                f:terminationMessagePath: {}
+                f:terminationMessagePolicy: {}
+            f:dnsPolicy: {}
+            f:restartPolicy: {}
+            f:schedulerName: {}
+            f:securityContext: {}
+            f:terminationGracePeriodSeconds: {}
+    manager: Mozilla
+    operation: Update
+  - apiVersion: apps.openshift.io/v1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:spec:
+        f:template:
+          f:spec:
+            f:containers:
+              k:{"name":"claimshero"}:
+                f:image: {}
+        f:triggers: {}
+      f:status:
+        f:availableReplicas: {}
+        f:conditions:
+          .: {}
+          k:{"type":"Available"}:
+            .: {}
+            f:lastTransitionTime: {}
+            f:lastUpdateTime: {}
+            f:message: {}
+            f:status: {}
+            f:type: {}
+          k:{"type":"Progressing"}:
+            .: {}
+            f:lastTransitionTime: {}
+            f:lastUpdateTime: {}
+            f:message: {}
+            f:reason: {}
+            f:status: {}
+            f:type: {}
+        f:details:
+          .: {}
+          f:causes: {}
+          f:message: {}
+        f:latestVersion: {}
+        f:observedGeneration: {}
+        f:readyReplicas: {}
+        f:replicas: {}
+        f:unavailableReplicas: {}
+        f:updatedReplicas: {}
+    manager: openshift-controller-manager
+    operation: Update
+  name: claimshero
+  namespace: test-app
+spec:
+  replicas: 1
+  revisionHistoryLimit: 10
+  selector:
+    app: claimshero
+    deploymentconfig: claimshero
+  strategy:
+    activeDeadlineSeconds: 21600
+    resources: {}
+    rollingParams:
+      intervalSeconds: 1
+      maxSurge: 25%
+      maxUnavailable: 25%
+      timeoutSeconds: 600
+      updatePeriodSeconds: 1
+    type: Rolling
+  template:
+    metadata:
+      annotations:
+        openshift.io/generated-by: RedHat
+      creationTimestamp: null
+      labels:
+        app: claimshero
+        deploymentconfig: claimshero
+    spec:
+      containers:
+      - env:
+        - name: DB_NAME
+          value: openshift
+        - name: DB_HOST
+          value: postgresql
+        - name: DB_USER
+          value: openshift
+        - name: DB_PASSWORD
+          value: openshift
+        - name: DB_TABLE_OWNER
+          value: openshift
+        - name: DB_TABLE_OWNER_PASSWORD
+          value: openshift
+        - name: DB_PORT
+          value: "5432"
+        - name: ALLOWED_ORIGIN
+          value: '*'
+        - name: APP_PORT
+          value: "3000"
+        image: quay.io/wdovey/claimshero:v2
+        imagePullPolicy: IfNotPresent
+        name: claimshero
+        ports:
+        - containerPort: 3000
+          protocol: TCP
+        resources: {}
+        terminationMessagePath: /dev/termination-log
+        terminationMessagePolicy: File
+      dnsPolicy: ClusterFirst
+      restartPolicy: Always
+      schedulerName: default-scheduler
+      securityContext: {}
+      terminationGracePeriodSeconds: 30
+  test: false
+  triggers:
+  - imageChangeParams:
+      automatic: true
+      containerNames:
+      - claimshero
+      from:
+        kind: ImageStreamTag
+        name: claimshero:v2
+        namespace: test-app
+      lastTriggeredImage: quay.io/wdovey/claimshero:v2
+    type: ImageChange
+  - type: ConfigChange
+status: {}
