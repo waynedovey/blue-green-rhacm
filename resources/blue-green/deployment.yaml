@@ -10,7 +10,7 @@ metadata:
   name: blue-green
 spec:
   progressDeadlineSeconds: 600
-  replicas: 5
+  replicas: 10
   revisionHistoryLimit: 10
   selector:
     matchLabels:
@@ -28,7 +28,7 @@ spec:
         deploymentconfig: blue-green
     spec:
       containers:
-      - image: openshift/deployment-example:v2 
+      - image: openshift/deployment-example:v1 
         imagePullPolicy: Always
         name: blue-green
         ports:
