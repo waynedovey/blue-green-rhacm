@@ -11,7 +11,7 @@ metadata:
   namespace: test
 spec:
   progressDeadlineSeconds: 600
-  replicas: 5
+  replicas: 50
   revisionHistoryLimit: 10
   selector:
     matchLabels:
