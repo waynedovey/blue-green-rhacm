@@ -11,7 +11,8 @@ spec:
   rules:
   - http:
       paths:
-      - path: /(.*)
+      #- path: /(.*)
+      - path:/blue-green
         pathType: Prefix
         backend:
           service:
@@ -38,3 +39,4 @@ spec:
             name: blue-green
             port: 
               number: 8080
+              
