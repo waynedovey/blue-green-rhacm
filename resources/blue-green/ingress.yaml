@@ -4,11 +4,11 @@ metadata:
   name: ingress-wildcard-host
 spec:
   rules:
-  - host: "*.env.play.instruqt.com"
+  - host: "spoke1-30001-vignvegx53hc.env.play.instruqt.com"
     http:
       paths:
       - pathType: Prefix
-        path: "/bluegreen"
+        path: "/"
         backend:
           service:
             name: blue-green
