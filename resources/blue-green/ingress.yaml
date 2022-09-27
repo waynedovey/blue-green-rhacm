@@ -13,7 +13,7 @@ spec:
   - http:
       paths:
       #- path: /(.*)
-      - path: /blue-green
+      - path: /bluegreen
         pathType: Prefix
         backend:
           service:
