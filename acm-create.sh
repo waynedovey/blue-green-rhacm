@@ -31,7 +31,7 @@ spec:
   clusterSelector:
     matchExpressions: []
     matchLabels:
-      environment: dev
+      environment: prod
 ---
 apiVersion: app.k8s.io/v1beta1
 kind: Application
